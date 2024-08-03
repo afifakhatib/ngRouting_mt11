@@ -1,0 +1,34 @@
+
+<div class="button" align="end">
+    <button class="btn btn-sm" routerLink="addProd"
+     mat-raised-button color="primary">
+     Add Product <mat-icon>add_circle</mat-icon>
+    </button>
+</div>
+
+<mat-divider class="bg-dark mt-3 mb-3"></mat-divider>
+
+
+<div class="row">
+    <div class="col-md-4">
+       <mat-list *ngIf="prodInfo.length > 0 ; else noProd"
+        class="border border-dark">
+        <mat-divider class="bg-dark"></mat-divider>
+          <mat-list-item *ngFor="let prod of prodInfo ; let i = index"
+           [routerLink]="prod.pId"  [queryParams]="{canReturn : prod.canReturn }"
+          class="cursor">
+              {{i + 1}}]  {{prod.pname}}
+                <mat-divider class="bg-dark"></mat-divider>
+          </mat-list-item>
+       </mat-list>
+
+       <ng-template #noProd>
+          <p class="text-danger alert alert-danger">
+            No Products Available yet !!!
+          </p>
+       </ng-template>
+    </div>
+    <div class="col-md-8">
+
+    </div>
+</div>

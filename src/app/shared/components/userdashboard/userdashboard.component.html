@@ -1,0 +1,35 @@
+
+<div class="button" align="end">
+    <button class="btn btn-sm" routerLink="addUser"
+     mat-raised-button color="primary">
+     Add User <mat-icon>add_circle</mat-icon>
+    </button>
+</div>
+
+<mat-divider class="bg-dark mt-3 mb-3"></mat-divider>
+
+
+<div class="row">
+    <div class="col-md-4">
+       <mat-list *ngIf="userInfo.length > 0 ; else noUser"
+        class="border border-dark">
+        <mat-divider class="bg-dark"></mat-divider>
+          <mat-list-item *ngFor="let user of userInfo ; let i = index"
+           [routerLink]="user.userId" [queryParams]="{userRole : user.userRole}"
+          class="cursor">
+              {{i + 1}}]  {{user.userName}}
+                <mat-divider class="bg-dark"></mat-divider>
+          </mat-list-item>
+       </mat-list>
+
+       <ng-template #noUser>
+          <p class="text-danger alert alert-danger">
+            No User Available yet !!!
+          </p>
+       </ng-template>
+    </div>
+    <div class="col-md-8">
+
+    </div>
+</div>
+

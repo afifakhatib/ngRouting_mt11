@@ -1,0 +1,17 @@
+.cursor{
+  cursor: pointer;
+}
+
+.cursor:hover,
+.cursor:active,
+.cursor:focus{
+  // background-image: linear-gradient(
+  //   to right bottom,
+  //   rgb(100, 130, 173),
+  //   rgb(127, 161, 195),
+  //   rgb(226, 218, 214),
+  //   rgb(245, 237, 237)
+  // );
+  background-color : #000;
+  color : white;
+}

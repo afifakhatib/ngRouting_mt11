@@ -1,0 +1,10 @@
+.cursor{
+    cursor: pointer;
+  }
+  
+  .cursor:hover,
+  .cursor:active,
+  .cursor:focus{
+    background-color : #000;
+    color : white;
+  }

@@ -1,0 +1,78 @@
+
+
+<div class="col-md-6 offset-md-3">
+    <mat-card class="alert alert-info">
+        <mat-card-header>
+           <h2><strong> {{!isinEditMode ? 'Add Product' : "Update Product"}} </strong></h2>
+        </mat-card-header>
+        <mat-divider class="bg-dark"></mat-divider>
+         <form [formGroup]="prodForm" (ngSubmit)="onProdAdd()">
+            <mat-card-content>
+
+                <mat-form-field class="example-full-width w-100" appearance="fill">
+                    <mat-label>Enter Product Name</mat-label>
+                    <input type="text" matInput formControlName="pname"
+                           placeholder="Ex. samsung s23">
+                    <mat-error *ngIf="getControls('pname').hasError('required')">
+                      Product Name is <strong>required</strong>
+                    </mat-error>
+                  </mat-form-field>
+
+                  <mat-form-field class="example-full-width w-100" appearance="fill">
+                    <mat-label>Enter Product Status</mat-label>
+                    <mat-select type="text" matInput formControlName="pStatus">
+                          <mat-option value="In-Progress">In-Progress</mat-option>
+                          <mat-option value="Dispatched">Dispatched</mat-option> 
+                          <mat-option value="Delieverd">Delieverd</mat-option>
+                  </mat-select>
+                    <mat-error *ngIf="getControls('pStatus').hasError('required')">
+                      Product Status is <strong>required</strong>
+                    </mat-error>
+                  </mat-form-field>
+
+                  <mat-form-field class="example-full-width w-100" appearance="fill">
+                    <mat-label>Enter Product Description</mat-label>
+                    <textarea type="text" matInput formControlName="productDescription"
+                           placeholder="Ex.productDescription....."></textarea>
+                    <mat-error *ngIf="getControls('productDescription').hasError('required')">
+                     Product Description is <strong>required</strong>
+                    </mat-error>
+                  </mat-form-field>
+
+                  <mat-form-field class="example-full-width w-100" appearance="fill">
+                    <mat-label>Enter Product Image</mat-label>
+                    <input type="text" matInput formControlName="productImg"
+                           placeholder="Ex.ImageUrl">
+                    <mat-error *ngIf="getControls('productImg').hasError('required')">
+                      Product Image is <strong>required</strong>
+                    </mat-error>
+                  </mat-form-field>
+
+                  <mat-form-field class="example-full-width w-100" appearance="fill">
+                    <mat-label>Enter Product canReturn</mat-label>
+                    <mat-select type="text" matInput formControlName="canReturn">
+                          <mat-option value="0">0</mat-option>
+                          <mat-option value="1">1</mat-option> 
+                  </mat-select>
+                    <mat-error *ngIf="getControls('canReturn').hasError('required')">
+                      Product canReturn is <strong>required</strong>
+                    </mat-error>
+                  </mat-form-field>
+
+            </mat-card-content>
+
+            <mat-divider class="bg-dark"></mat-divider>
+
+             <mat-card-actions>
+                <div class="button">
+                    <button class="btn btn-sm" type="submit" mat-raised-button color="primary"
+                     *ngIf="!isinEditMode">Add Product</button>
+                     <button class="btn btn-sm" type="button" mat-raised-button color="primary"
+                     *ngIf="isinEditMode" 
+                     (click)="onProdUpdate()" [disabled]="canReturn === '0'">Update Product</button>
+                </div>
+             </mat-card-actions>
+         </form>
+    </mat-card>
+    
+</div>

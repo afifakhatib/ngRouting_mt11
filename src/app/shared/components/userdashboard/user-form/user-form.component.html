@@ -1,0 +1,69 @@
+
+
+
+
+<div class="col-md-6 offset-md-3">
+    <mat-card class="alert alert-info">
+        <mat-card-header>
+           <h2><strong> {{!isinEditMode ? 'Add User' : "Update User"}} </strong></h2>
+        </mat-card-header>
+        <mat-divider class="bg-dark"></mat-divider>
+         <form [formGroup]="userForm" (ngSubmit)="onUserAdd()">
+            <mat-card-content>
+
+                <mat-form-field class="example-full-width w-100" appearance="fill">
+                    <mat-label>Enter UserName</mat-label>
+                    <input type="text" matInput formControlName="userName"
+                           placeholder="Ex.JhonDoe">
+                    <mat-error *ngIf="getControls('userName').hasError('required')">
+                        UserName is <strong>required</strong>
+                    </mat-error>
+                  </mat-form-field>
+
+                  <mat-form-field class="example-full-width w-100" appearance="fill">
+                    <mat-label>Enter UserName</mat-label>
+                    <input type="text" matInput formControlName="personImg"
+                           placeholder="Ex. ImgUrl">
+                    <mat-error *ngIf="getControls('personImg').hasError('required')">
+                        person Image is <strong>required</strong>
+                    </mat-error>
+                  </mat-form-field>
+
+                  <mat-form-field class="example-full-width w-100" appearance="fill">
+                    <mat-label>Enter UserName</mat-label>
+                    <textarea type="text" matInput formControlName="userDetails"
+                           placeholder="Ex.information reguarding user......."></textarea>
+                    <mat-error *ngIf="getControls('userDetails').hasError('required')">
+                        user Details is <strong>required</strong>
+                    </mat-error>
+                  </mat-form-field>
+
+                  <mat-form-field class="example-full-width w-100" appearance="fill">
+                    <mat-label>Enter UserName</mat-label>
+                    <mat-select type="text" matInput formControlName="userRole">
+                        <mat-option value="admin">admin</mat-option>
+                        <mat-option value="buyer">buyer</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="getControls('userRole').hasError('required')">
+                        userRole is <strong>required</strong>
+                    </mat-error>
+                  </mat-form-field>
+
+
+            </mat-card-content>
+
+            <mat-divider class="bg-dark"></mat-divider>
+
+             <mat-card-actions>
+                <div class="button">
+                    <button class="btn btn-sm" type="submit" mat-raised-button color="primary" 
+                     *ngIf="!isinEditMode">Add User</button>
+                     <button class="btn btn-sm" type="button" mat-raised-button color="primary"
+                     *ngIf="isinEditMode" 
+                     (click)="onUserUpdate()" [disabled]="userRole==='buyer'">Update User</button>
+                </div>
+             </mat-card-actions>
+         </form>
+    </mat-card>
+    
+</div>

@@ -1,0 +1,23 @@
+.imgContainer{
+    height : 300px;
+    width : 100%;
+    img{
+        height : 100%;
+        width : 100%;
+        object-fit: cover;
+    }
+}
+
+.prodDetails{
+    height: 100px;
+    overflow: auto;
+}
+
+::-webkit-scrollbar{
+    width: 5px;
+}
+
+::-webkit-scrollbar-thumb{
+    background: #000;
+    border-radius: 10px;
+}

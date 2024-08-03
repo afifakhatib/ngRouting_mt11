@@ -1,0 +1,46 @@
+
+    <div class="row alert alert-info" *ngIf="prodObj ; else noProd">
+           <div class="col-md-8">
+             <div class="d-flex prodName">
+                <mat-icon>shopping_bag</mat-icon>
+                <h3 class="m-0"><strong>Product Name : </strong>{{prodObj.pname}} </h3>
+             </div>
+
+            <mat-divider class="bg-danger mt-3 mb-3"></mat-divider>
+
+             <div class="d-flex prodStatus">
+               <mat-icon>location_on</mat-icon>
+               <h3 class="m-0">  <strong>Product Status : </strong> {{prodObj.pStatus}} </h3>
+             </div>
+
+             <mat-divider class="bg-danger mt-3 mb-3"></mat-divider>
+       
+           <div class="pdetails">
+            <span class="d-flex m-0">
+                <mat-icon>summarize</mat-icon>
+                <h3 class="m-0"><strong>Product Description : </strong></h3>
+              </span>
+              <p class="prodDetails"> {{prodObj.productDescription}} </p>
+           </div>
+
+           <mat-divider class="bg-danger mt-3 mb-3"></mat-divider>
+       
+           <div class="button">
+            <button class="btn btn-sm" mat-raised-button color="primary" [queryParamsHandling]='"preserve"'
+            routerLink="editProd">Edit Product</button>
+            <button class="btn btn-sm ml-4" mat-raised-button color="warn" 
+            (click)="onRemoveProd()">Remove Product</button>
+           </div>
+           </div>
+           <div class="col-md-4">
+                <div class="imgContainer">
+                   <img [src]="prodObj.productImg" [alt]="prodObj.pname" [title]="prodObj.pname">
+                </div>
+           </div>
+ 
+     </div>
+       
+     <ng-template #noProd>
+        <p class="alert alert-danger text-danger">Product not available yet!!</p>
+    </ng-template>
+

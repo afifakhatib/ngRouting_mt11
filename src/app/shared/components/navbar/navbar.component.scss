@@ -1,0 +1,14 @@
+.mainNavbar.navbar-dark .navbar-nav .active > .nav-link,
+.mainNavbar.navbar-dark .navbar-nav .nav-link.active,
+.mainNavbar.navbar-dark .navbar-nav .nav-link.show,
+.mainNavbar.navbar-dark .navbar-nav .show > .nav-link {
+    background-image: linear-gradient(
+        to right bottom,
+        rgb(100, 130, 173),
+        rgb(127, 161, 195),
+        rgb(226, 218, 214),
+        rgb(245, 237, 237)
+      );
+
+      color : #000;
+}
